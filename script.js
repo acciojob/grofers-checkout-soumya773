@@ -2,7 +2,7 @@ function calculateTotal() {
       const prices = document.querySelectorAll(".prices");
       let total = 0;
 
-      prices.forEach(priceCell => {
+      price.forEach(priceCell => {
         const value = parseFloat(priceCell.textContent);
         if (!isNaN(value)) {
           total += value;
