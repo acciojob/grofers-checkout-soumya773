@@ -1,19 +1,17 @@
-
-/* Your CSS Code here. */
-table {
+ table {
       width: 50%;
-      margin: 30px auto;
+      margin: 20px auto;
       border-collapse: collapse;
     }
-
     th, td {
-      padding: 12px;
       border: 1px solid #ccc;
+      padding: 10px;
       text-align: left;
     }
-
-    .total-row {
+    th {
+      background-color: #f4f4f4;
+    }
+    .total {
       font-weight: bold;
-      background-color: #f9f9f9;
-      text-align: center;
+      background-color: #f0fff0;
     }

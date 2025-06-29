@@ -1,30 +1,29 @@
-const getSumBtn = document.createElement("button");
-getSumBtn.append("Get Total Price");
-document.body.appendChild(getSumBtn);
+function calculateTotal() {
+      const prices = document.querySelectorAll(".prices");
+      let total = 0;
 
-const getSum = () => {
-//Add your code here
-   const getSum = () => {
-  const prices = document.querySelectorAll(".price");
-  let total = 0;
+      prices.forEach(priceCell => {
+        const value = parseFloat(priceCell.textContent);
+        if (!isNaN(value)) {
+          total += value;
+        }
+      });
 
-  prices.forEach(cell => {
-    const val = parseFloat(cell.textContent) || 0;
-    total += val;
-  });
+      const table = document.getElementById("grocery-table");
 
-  const table = document.querySelector("table");
-  const totalRow = document.createElement("tr");
-  const totalCell = document.createElement("td");
-  totalCell.setAttribute("colspan", "2");
-  totalCell.setAttribute("id", "ans"); // So Cypress can find it
-  totalCell.textContent = total;
+      // Create new row
+      const totalRow = document.createElement("tr");
+      totalRow.classList.add("total");
 
-  totalRow.appendChild(totalCell);
-  table.appendChild(totalRow);
-};
+      // Create one cell that spans both columns
+      const totalCell = document.createElement("td");
+      totalCell.setAttribute("colspan", "2");
+      totalCell.textContent = "Total Price: ₹" + total;
 
-};
+      // Append cell to row and row to table
+      totalRow.appendChild(totalCell);
+      table.appendChild(totalRow);
+    }
 
-getSumBtn.addEventListener("click", getSum);
-
+    // Run the total calculation after page loads
+    window.onload = calculateTotal;
